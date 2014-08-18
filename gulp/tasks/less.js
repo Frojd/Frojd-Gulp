@@ -1,11 +1,11 @@
-var gulp         = require('gulp');
-var less         = require('gulp-less');
-var minifyCSS    = require('gulp-minify-css');
-var cmq          = require('gulp-combine-media-queries');
-var path         = require('path');
-var rename       = require('gulp-rename');
-var handleErrors = require('../util/handleErrors');
-var config       = require('../config');
+var gulp         = require('gulp'),
+    less         = require('gulp-less'),
+    minifyCSS    = require('gulp-minify-css'),
+    cmq          = require('gulp-combine-media-queries'),
+    path         = require('path'),
+    rename       = require('gulp-rename'),
+    handleErrors = require('../util/handleErrors'),
+    config       = require('../config');
 
 gulp.task('less', ['lessDev', 'lessProd', 'lessIe']);
 
