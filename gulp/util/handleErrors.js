@@ -1,4 +1,4 @@
-var gutil = require('gulp-util');
+var gutil = require("gulp-util");
 
 // Handle an error based on its severity level.
 // Log all levels, and exit the process for fatal levels.

@@ -1,21 +1,21 @@
-var gulp   = require('gulp'),
-    path   = require('path'),
-    config = require('../config');
+var gulp   = require("gulp"),
+    path   = require("path"),
+    config = require("../config");
 
-gulp.task('watch', function() {
+gulp.task("watch", function() {
     gulp.watch([
-            path.join(config.root, 'less', '**', '*.less'),
+            path.join(config.root, "less", "**", "*.less")
         ],
-        ['less']
+        [ "less" ]
     );
     gulp.watch([
-            path.join(config.root, 'js', '**', '*.js'),
+            path.join(config.root, "js", "**", "*.js")
         ],
-        ['browserify']
+        [ "browserify" ]
     );
     gulp.watch([
-            path.join(config.root, 'img', '**'),
+            path.join(config.root, "img", "**")
         ],
-        ['images']
+        [ "images" ]
     );
 });
