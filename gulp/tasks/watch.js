@@ -1,5 +1,5 @@
-var gulp   = require("gulp"),
-    path   = require("path"),
+var gulp = require("gulp"),
+    path = require("path"),
     config = require("../config");
 
 gulp.task("watch", function() {

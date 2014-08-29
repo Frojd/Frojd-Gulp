@@ -1,15 +1,15 @@
-var gulp         = require("gulp"),
-    browserify   = require("browserify"),
-    jshint       = require("gulp-jshint"),
-    uglify       = require("gulp-uglify"),
-    source       = require("vinyl-source-stream"),
-    streamify    = require("gulp-streamify"),
-    path         = require("path"),
-    mold         = require("mold-source-map"),
-    map          = require("map-stream"),
+var gulp = require("gulp"),
+    browserify = require("browserify"),
+    jshint = require("gulp-jshint"),
+    uglify = require("gulp-uglify"),
+    source = require("vinyl-source-stream"),
+    streamify = require("gulp-streamify"),
+    path = require("path"),
+    mold = require("mold-source-map"),
+    map = require("map-stream"),
     handleErrors = require("../util/handleErrors"),
-    config       = require("../config"),
-    errors       = [];
+    config = require("../config"),
+    errors = [];
 
 gulp.task("browserify", [ "jshint" ], function() {
 
