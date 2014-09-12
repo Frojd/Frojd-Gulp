@@ -27,7 +27,9 @@ gulp.task("lessProd", function() {
         .pipe(cmq({
           log: true
         }))
+        .on("error", handleErrors.warning)
         .pipe(minifyCSS())
+        .on("error", handleErrors.warning)
         .pipe(rename("main-min.css"))
         .pipe(gulp.dest(path.join(config.root, "builds", "css"))
     );
