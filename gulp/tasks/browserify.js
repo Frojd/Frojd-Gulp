@@ -1,4 +1,5 @@
 var gulp         = require("gulp"),
+    gutil        = require("gulp-util"),
     browserify   = require("browserify"),
     jshint       = require("gulp-jshint"),
     uglify       = require("gulp-uglify"),
@@ -43,5 +44,11 @@ gulp.task("jshint", function(callback) {
             errors.push(file.jshint.success);
             callback(null, file);
         }))
-        .on("end", function() { callback(); });
+        .on("end", function() {
+            if(errors.filter(function(success){return !success}).length) {
+                gutil.beep();
+            }
+
+            callback();
+        });
 });

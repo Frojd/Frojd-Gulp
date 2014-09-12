@@ -4,6 +4,8 @@ var gutil = require("gulp-util");
 // Log all levels, and exit the process for fatal levels.
 function handleError(stop, error) {
     gutil.log(error.message);
+    gutil.beep();
+
     if (stop) {
         process.exit(1);
     }
