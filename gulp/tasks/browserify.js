@@ -1,3 +1,5 @@
+"use strict";
+
 var gulp = require("gulp"),
     browserify = require("browserify"),
     jshint = require("gulp-jshint"),
@@ -13,7 +15,7 @@ var gulp = require("gulp"),
 
 gulp.task("browserify", [ "jshint" ], function() {
 
-    if (errors.indexOf(false) == -1) {
+    if (errors.indexOf(false) === -1) {
 
         var bundle = browserify(
                 path.join(config.root, "js", "main.js"),

@@ -1,3 +1,5 @@
+"use strict";
+
 var gutil = require("gulp-util");
 
 // Handle an error based on its severity level.
