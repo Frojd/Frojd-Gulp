@@ -1,12 +1,14 @@
-var gulp         = require("gulp"),
-    less         = require("gulp-less"),
-    minifyCSS    = require("gulp-minify-css"),
-    sourcemaps   = require("gulp-sourcemaps"),
-    cmq          = require("gulp-combine-media-queries"),
-    path         = require("path"),
-    rename       = require("gulp-rename"),
+"use strict";
+
+var gulp = require("gulp"),
+    less = require("gulp-less"),
+    minifyCss = require("gulp-minify-css"),
+    sourcemaps = require("gulp-sourcemaps"),
+    cmq = require("gulp-combine-media-queries"),
+    path = require("path"),
+    rename = require("gulp-rename"),
     handleErrors = require("../util/handleErrors"),
-    config       = require("../config");
+    config = require("../config");
 
 gulp.task("less", [ "lessDev", "lessProd", "lessIe" ]);
 
@@ -25,9 +27,10 @@ gulp.task("lessProd", function() {
         .pipe(less())
         .on("error", handleErrors.warning)
         .pipe(cmq({
-          log: true
+            log: true
         }))
-        .pipe(minifyCSS())
+        .pipe(minifyCss())
+        .on("error", handleErrors.warning)
         .pipe(rename("main-min.css"))
         .pipe(gulp.dest(path.join(config.root, "builds", "css"))
     );

@@ -1,19 +1,22 @@
-var gulp         = require("gulp"),
-    browserify   = require("browserify"),
-    jshint       = require("gulp-jshint"),
-    uglify       = require("gulp-uglify"),
-    source       = require("vinyl-source-stream"),
-    streamify    = require("gulp-streamify"),
-    path         = require("path"),
-    mold         = require("mold-source-map"),
-    map          = require("map-stream"),
+"use strict";
+
+var gulp = require("gulp"),
+    browserify = require("browserify"),
+    jshint = require("gulp-jshint"),
+    uglify = require("gulp-uglify"),
+    source = require("vinyl-source-stream"),
+    streamify = require("gulp-streamify"),
+    path = require("path"),
+    mold = require("mold-source-map"),
+    map = require("map-stream"),
+    gutil = require("gulp-util"),
     handleErrors = require("../util/handleErrors"),
-    config       = require("../config"),
-    errors       = [];
+    config = require("../config"),
+    errors = [];
 
 gulp.task("browserify", [ "jshint" ], function() {
 
-    if (errors.indexOf(false) == -1) {
+    if (errors.indexOf(false) === -1) {
 
         var bundle = browserify(
                 path.join(config.root, "js", "main.js"),
@@ -43,5 +46,13 @@ gulp.task("jshint", function(callback) {
             errors.push(file.jshint.success);
             callback(null, file);
         }))
-        .on("end", function() { callback(); });
+        .on("end", function() {
+            if(errors.filter(function(success){return !success;}).length) {
+                if (config.beep) {
+                    gutil.beep();
+                }
+            }
+
+            callback();
+        });
 });
