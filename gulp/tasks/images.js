@@ -1,8 +1,10 @@
-var changed  = require("gulp-changed"),
-	gulp     = require("gulp"),
+"use strict";
+
+var gulp = require("gulp"),
+    changed = require("gulp-changed"),
 	imagemin = require("gulp-imagemin"),
-	path     = require("path"),
-	config   = require("../config");
+	path = require("path"),
+	config = require("../config");
 
 gulp.task("images", function() {
 	gulp.src(path.join(config.root, "img", "**"))
