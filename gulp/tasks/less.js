@@ -2,6 +2,7 @@
 
 var gulp = require("gulp"),
     less = require("gulp-less"),
+    recess = require('gulp-recess'),
     minifyCss = require("gulp-minify-css"),
     sourcemaps = require("gulp-sourcemaps"),
     cmq = require("gulp-combine-media-queries"),
@@ -10,7 +11,7 @@ var gulp = require("gulp"),
     handleErrors = require("../util/handleErrors"),
     config = require("../config");
 
-gulp.task("less", [ "lessDev", "lessProd", "lessIe" ]);
+gulp.task("less", [ "lessDev", "lessProd", "lessIe", "lintLess" ]);
 
 gulp.task("lessDev", function() {
     gulp.src(path.join(config.root, "less", "main.less"))
@@ -42,4 +43,16 @@ gulp.task("lessIe", function() {
         .on("error", handleErrors.warning)
         .pipe(gulp.dest(path.join(config.root, "builds", "css"))
     );
+});
+
+gulp.task("lintCss", function () {
+    gulp.src(path.join(config.root, "less", "main.less"))
+        .pipe(recess(
+            config.cssRules
+        ))
+        .on("error", handleErrors.warning)
+        .pipe(recess.reporter({
+            fail: false
+        }))
+        .on("error", handleErrors.warning);
 });
