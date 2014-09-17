@@ -1,6 +1,6 @@
 {
     "name": "frojd-gulp",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "dependencies": {
         "gulp": "~3.8.0",
         "gulp-streamify": "~0.0.5",
