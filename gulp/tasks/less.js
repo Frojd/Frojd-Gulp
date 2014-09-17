@@ -11,7 +11,7 @@ var gulp = require("gulp"),
     handleErrors = require("../util/handleErrors"),
     config = require("../config");
 
-gulp.task("less", [ "lessDev", "lessProd", "lessIe", "lintLess" ]);
+gulp.task("less", [ "lessDev", "lessProd", "lessIe", "lintCss" ]);
 
 gulp.task("lessDev", function() {
     gulp.src(path.join(config.root, "less", "main.less"))
