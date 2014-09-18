@@ -43,7 +43,8 @@ gulp.task("lessIe", function() {
 });
 
 gulp.task("lintCss", function () {
-    gulp.src(path.join(config.root, "less", "main.less"))
+    gulp.src([path.join(config.root, "less", "**", "*.less"),
+        "!" + config.root + "/less/main.less" ])
         .pipe(recess(
             config.cssRules
         ))
