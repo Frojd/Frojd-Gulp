@@ -9,6 +9,7 @@ Build script based on Dan Tello's recipe.
 ## Installing
 
 Place in root of project and edit config.js and supply path to the directory where your scripts, less files and images are located.
+Rename config.template.js to config.js
 ! Note: Use main.less and main.js as your main files
 
 ```
