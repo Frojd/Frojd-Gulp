@@ -31,7 +31,7 @@ gulp.task("browserify", [ "jshint" ], function() {
 });
 
 gulp.task("jshint", function() {
-    gulp.src([ path.join(config.root, "js", "**", "*.js"), 
+    gulp.src([ path.join(config.root, "js", "**", "*.js"),
         "!" + config.root + "/js/" + config.excludedJsFolder + "{,/**}" ])
         .pipe(jshint())
         .pipe(jshint.reporter("jshint-stylish"))
