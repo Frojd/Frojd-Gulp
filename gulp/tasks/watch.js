@@ -20,4 +20,9 @@ gulp.task("watch", function() {
         { cwd: config.root },
         [ "images" ]
     );
+    gulp.watch(
+        [ path.join("icons", "**") ],
+        { cwd: config.root },
+        [ "icons" ]
+    );
 });
