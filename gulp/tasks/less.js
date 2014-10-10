@@ -18,7 +18,7 @@ gulp.task("lessDev", function() {
         .pipe(less())
         .on("error", handleErrors.warning)
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.join(config.root, "builds", "css")));
+        .pipe(gulp.dest(path.join(config.buildPath(), "css")));
 });
 
 gulp.task("lessProd", function() {
@@ -31,12 +31,12 @@ gulp.task("lessProd", function() {
         .pipe(minifyCss())
         .on("error", handleErrors.warning)
         .pipe(rename("main-min.css"))
-        .pipe(gulp.dest(path.join(config.root, "builds", "css")));
+        .pipe(gulp.dest(path.join(config.buildPath(), "css")));
 });
 
 gulp.task("lessIe", function() {
     gulp.src(path.join(config.root, "less", "ie.less"))
         .pipe(less())
         .on("error", handleErrors.warning)
-        .pipe(gulp.dest(path.join(config.root, "builds", "css")));
+        .pipe(gulp.dest(path.join(config.buildPath(), "css")));
 });

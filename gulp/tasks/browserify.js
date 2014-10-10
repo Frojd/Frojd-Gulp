@@ -23,15 +23,15 @@ gulp.task("browserify", [ "jshint" ], function() {
         .pipe(mold.transformSourcesRelativeTo(path.join(config.root, "js")));
 
     bundle.pipe(source("main.js"))
-        .pipe(gulp.dest(path.join(config.root, "builds", "js")));
+        .pipe(gulp.dest(path.join(config.buildPath(), "js")));
 
     bundle.pipe(source("main-min.js"))
         .pipe(streamify(uglify()))
-        .pipe(gulp.dest(path.join(config.root, "builds", "js")));
+        .pipe(gulp.dest(path.join(config.buildPath(), "js")));
 });
 
 gulp.task("jshint", function() {
-    gulp.src([ path.join(config.root, "js", "**", "*.js"), 
+    gulp.src([ path.join(config.root, "js", "**", "*.js"),
         "!" + config.root + "/js/" + config.excludedJsFolder + "{,/**}" ])
         .pipe(jshint())
         .pipe(jshint.reporter("jshint-stylish"))
