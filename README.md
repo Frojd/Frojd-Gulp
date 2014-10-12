@@ -5,6 +5,7 @@ Build script based on Dan Tello's recipe.
 - Bundles scripts with browserify
 - Compiles less files
 - Minifies images
+- Creates icon fonts from svg
 
 ## Installing
 
@@ -22,11 +23,12 @@ Rename config.template.js to config.js
     |-- /wp-content
         |-- /themes
             |-- /theme-name
+                |-- /icons
                 |-- /img
-                |-- /less
-                    |-- main.less
                 |-- /js
                     |-- main.js
+                |-- /less
+                    |-- main.less
     |-- /wp-includes
 
 // config.js
@@ -42,6 +44,10 @@ Make sure gulp is installed globally:
 ```
 npm install gulp -g
 ```
+
+## Icons
+
+Fonts are created by just dropping svg icons in the icons folder during watch. Svg should be single coloured.
 
 ## Running
 
