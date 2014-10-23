@@ -12,5 +12,6 @@
     "undef": true,
     "trailing": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "browserify": true
 }
