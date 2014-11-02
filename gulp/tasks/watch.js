@@ -13,7 +13,7 @@ gulp.task("watch", function() {
     gulp.watch(
         [ path.join("js", "**", "*.js") ],
         { cwd: config.root },
-        [ "browserify" ]
+        [ "javascript" ]
     );
     gulp.watch(
         [ path.join("img", "**") ],
