@@ -2,4 +2,4 @@
 
 var gulp = require("gulp");
 
-gulp.task("javascript", [ "jshint", "browserify", "copyJsFolders" ]);
+gulp.task("javascript", [ "jshint", "browserify" ]);

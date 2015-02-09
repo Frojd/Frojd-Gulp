@@ -1,15 +1,15 @@
 "use strict";
 
-var gulp = require("gulp"),
-    browserify = require("browserify"),
-    uglify = require("gulp-uglify"),
-    source = require("vinyl-source-stream"),
-    streamify = require("gulp-streamify"),
-    path = require("path"),
-    mold = require("mold-source-map"),
-    map = require("map-stream"),
-    handleErrors = require("../util/handleErrors"),
-    config = require("../config");
+var gulp = require("gulp");
+var browserify = require("browserify");
+var uglify = require("gulp-uglify");
+var source = require("vinyl-source-stream");
+var streamify = require("gulp-streamify");
+var path = require("path");
+var mold = require("mold-source-map");
+var map = require("map-stream");
+var handleErrors = require("../util/handleErrors");
+var config = require("../config");
 
 gulp.task("browserify", function() {
     var bundle = browserify(

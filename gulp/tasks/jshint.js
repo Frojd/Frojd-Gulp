@@ -1,20 +1,20 @@
 "use strict";
 
-var gulp = require("gulp"),
-    jshint = require("gulp-jshint"),
-    path = require("path"),
-    handleErrors = require("../util/handleErrors"),
-    config = require("../config"),
-    sources = [ path.join(config.root, "js", "**", "*.js") ];
-
-for (var i = 0; i < config.excludedJsFolders.length; i++) {
-    sources.push(
-        "!" + config.root + "/js/" + config.excludedJsFolders[i] + "{,/**}"
-    );
-}
+var gulp = require("gulp");
+var jshint = require("gulp-jshint");
+var path = require("path");
+var handleErrors = require("../util/handleErrors");
+var getSource = require("../util/getSource");
+var config = require("../config");
+var source = getSource(
+    path.join(config.root, "js"),
+    [ path.join(config.root, "js", "**", "*.js") ],
+    config.jsFoldersToExclude, 
+    true
+);
 
 gulp.task("jshint", function() {
-    gulp.src(sources)
+    gulp.src(source)
         .pipe(jshint())
         .pipe(jshint.reporter("jshint-stylish"))
         .pipe(jshint.reporter("fail"))
