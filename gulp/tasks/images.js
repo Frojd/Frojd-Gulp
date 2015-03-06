@@ -1,10 +1,10 @@
 "use strict";
 
-var gulp = require("gulp"),
-    changed = require("gulp-changed"),
-	imagemin = require("gulp-imagemin"),
-	path = require("path"),
-	config = require("../config");
+var gulp = require("gulp");
+var changed = require("gulp-changed");
+var imagemin = require("gulp-imagemin");
+var path = require("path");
+var config = require("../config");
 
 gulp.task("images", function() {
 	gulp.src(path.join(config.root, "img", "**"))

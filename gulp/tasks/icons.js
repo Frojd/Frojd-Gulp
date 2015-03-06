@@ -1,12 +1,12 @@
 "use strict";
 
-var gulp = require("gulp"),
-    iconFont = require("gulp-iconfont"),
-    consolidate = require("gulp-consolidate"),
-    rename = require("gulp-rename"),
-    path = require("path"),
-    config = require("../config"),
-    fontName = "icon";
+var gulp = require("gulp");
+var iconFont = require("gulp-iconfont");
+var consolidate = require("gulp-consolidate");
+var rename = require("gulp-rename");
+var path = require("path");
+var config = require("../config");
+var fontName = "icon";
 
 gulp.task("icons", function() {
     gulp.src([ path.join(config.root, "icons", "*.svg") ])
@@ -29,7 +29,7 @@ gulp.task("icons", function() {
                     className: "icon"
                 }))
                 .pipe(rename({ basename: "icons", extname: ".less" }))
-                .pipe(gulp.dest(path.join(config.root, "less")));
+                .pipe(gulp.dest(path.join(config.root, "less", "core")));
         })
         .pipe(gulp.dest(path.join(config.root, "fonts")));
 });
