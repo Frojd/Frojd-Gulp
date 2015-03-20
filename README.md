@@ -7,6 +7,10 @@ Build script based on Dan Tello's recipe.
 - Minifies images
 - Creates icon fonts from svg
 
+## Requirements
+
+- Node v0.10.36 (current versions of gulp-sourcemaps and gulp-less will not work properly with v0.12.0)
+
 ## Installing
 
 Place in root of project and edit config.js and supply path to the directory where your scripts, less files and images are located.
