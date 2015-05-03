@@ -17,6 +17,9 @@ gulp.task("lessDev", function() {
         .pipe(sourcemaps.init())
         .pipe(less())
         .on("error", handleErrors.warning)
+        .pipe(cmq({
+            log: true
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.join(config.buildPath(), "css")));
 });
