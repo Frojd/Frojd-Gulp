@@ -3,27 +3,30 @@
 var gulp = require("gulp");
 var browserify = require("browserify");
 var uglify = require("gulp-uglify");
+var sourcemaps = require("gulp-sourcemaps");
 var source = require("vinyl-source-stream");
-var streamify = require("gulp-streamify");
+var buffer = require("vinyl-buffer");
 var path = require("path");
-var mold = require("mold-source-map");
-var map = require("map-stream");
 var handleErrors = require("../util/handleErrors");
 var config = require("../config");
 
 gulp.task("browserify", function() {
+
     var bundle = browserify(
-            path.join(config.root, "js", "main.js"),
-            { debug: true }
-        )
-        .bundle()
-        .on("error", handleErrors.warning)
-        .pipe(mold.transformSourcesRelativeTo(path.join(config.root, "js")));
+        path.join(config.root, "js", "main.js"),
+        { debug: true }
+    )
+    .bundle()
+    .on("error", handleErrors.warning);
 
     bundle.pipe(source("main.js"))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(sourcemaps.write("../maps"))
         .pipe(gulp.dest(path.join(config.buildPath(), "js")));
 
     bundle.pipe(source("main-min.js"))
-        .pipe(streamify(uglify()))
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(gulp.dest(path.join(config.buildPath(), "js")));
 });
