@@ -1,14 +1,15 @@
 "use strict";
 
-var gulp = require("gulp");
 var browserify = require("browserify");
-var uglify = require("gulp-uglify");
-var sourcemaps = require("gulp-sourcemaps");
-var source = require("vinyl-source-stream");
 var buffer = require("vinyl-buffer");
+var gulp = require("gulp");
 var path = require("path");
-var handleErrors = require("../util/handleErrors");
+var source = require("vinyl-source-stream");
+var sourcemaps = require("gulp-sourcemaps");
+var uglify = require("gulp-uglify");
+
 var config = require("../config");
+var handleErrors = require("../util/handleErrors");
 
 gulp.task("browserify", function() {
 

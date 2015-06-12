@@ -2,8 +2,9 @@
 
 var gulp = require("gulp");
 var path = require("path");
-var getSource = require("../util/getSource");
+
 var config = require("../config");
+var getSource = require("../util/getSource");
 var source =  getSource(
     "js",
     [ path.join("js", "**", "*.js") ],

@@ -2,6 +2,7 @@
 
 var gulp = require("gulp");
 var path = require("path");
+
 var config = require("../config");
 
 try {

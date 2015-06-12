@@ -1,10 +1,11 @@
 "use strict";
 
+var consolidate = require("gulp-consolidate");
 var gulp = require("gulp");
 var iconFont = require("gulp-iconfont");
-var consolidate = require("gulp-consolidate");
-var rename = require("gulp-rename");
 var path = require("path");
+var rename = require("gulp-rename");
+
 var config = require("../config");
 var fontName = "icon";
 

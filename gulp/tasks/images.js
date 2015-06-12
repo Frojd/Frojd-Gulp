@@ -1,8 +1,9 @@
 "use strict";
 
-var gulp = require("gulp");
 var changed = require("gulp-changed");
+var gulp = require("gulp");
 var path = require("path");
+
 var config = require("../config");
 
 try {

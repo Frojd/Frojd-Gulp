@@ -3,8 +3,9 @@
 var gulp = require("gulp");
 var jshint = require("gulp-jshint");
 var path = require("path");
-var handleErrors = require("../util/handleErrors");
+
 var config = require("../config");
+var handleErrors = require("../util/handleErrors");
 
 gulp.task("copyJsFolders", function () {
     for (var i = 0; i < config.jsFoldersToCopy.length; i++) {

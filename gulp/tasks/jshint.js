@@ -3,9 +3,10 @@
 var gulp = require("gulp");
 var jshint = require("gulp-jshint");
 var path = require("path");
-var handleErrors = require("../util/handleErrors");
-var getSource = require("../util/getSource");
+
 var config = require("../config");
+var getSource = require("../util/getSource");
+var handleErrors = require("../util/handleErrors");
 var source = getSource(
     path.join(config.root, "js"),
     [ path.join(config.root, "js", "**", "*.js") ],

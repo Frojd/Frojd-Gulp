@@ -3,9 +3,10 @@
 var gulp = require("gulp");
 var less = require("gulp-less");
 var minifyCss = require("gulp-minify-css");
-var sourcemaps = require("gulp-sourcemaps");
 var path = require("path");
 var rename = require("gulp-rename");
+var sourcemaps = require("gulp-sourcemaps");
+
 var handleErrors = require("../util/handleErrors");
 var config = require("../config");
 
