@@ -12,7 +12,6 @@ var config = require("../config");
 var handleErrors = require("../util/handleErrors");
 
 gulp.task("browserify", function() {
-
     var bundle = browserify(
         path.join(config.root, "js", "main.js"),
         { debug: true }
@@ -21,13 +20,13 @@ gulp.task("browserify", function() {
     .on("error", handleErrors.warning);
 
     bundle.pipe(source("main.js"))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(sourcemaps.write("../maps"))
-        .pipe(gulp.dest(path.join(config.buildPath(), "js")));
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write("../maps"))
+    .pipe(gulp.dest(path.join(config.buildPath(), "js")));
 
     bundle.pipe(source("main-min.js"))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(gulp.dest(path.join(config.buildPath(), "js")));
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(gulp.dest(path.join(config.buildPath(), "js")));
 });

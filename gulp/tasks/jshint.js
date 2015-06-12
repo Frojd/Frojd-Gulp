@@ -16,8 +16,8 @@ var source = getSource(
 
 gulp.task("jshint", function() {
     gulp.src(source)
-        .pipe(jshint())
-        .pipe(jshint.reporter("jshint-stylish"))
-        .pipe(jshint.reporter("fail"))
-        .on("error", handleErrors.warning);
+    .pipe(jshint())
+    .pipe(jshint.reporter("jshint-stylish"))
+    .pipe(jshint.reporter("fail"))
+    .on("error", handleErrors.warning);
 });
