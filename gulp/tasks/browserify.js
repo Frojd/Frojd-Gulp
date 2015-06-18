@@ -1,29 +1,32 @@
 "use strict";
 
-var gulp = require("gulp");
 var browserify = require("browserify");
-var uglify = require("gulp-uglify");
-var source = require("vinyl-source-stream");
-var streamify = require("gulp-streamify");
+var buffer = require("vinyl-buffer");
+var gulp = require("gulp");
 var path = require("path");
-var mold = require("mold-source-map");
-var map = require("map-stream");
-var handleErrors = require("../util/handleErrors");
+var source = require("vinyl-source-stream");
+var sourcemaps = require("gulp-sourcemaps");
+var uglify = require("gulp-uglify");
+
 var config = require("../config");
+var handleErrors = require("../util/handleErrors");
 
 gulp.task("browserify", function() {
     var bundle = browserify(
-            path.join(config.root, "js", "main.js"),
-            { debug: true }
-        )
-        .bundle()
-        .on("error", handleErrors.warning)
-        .pipe(mold.transformSourcesRelativeTo(path.join(config.root, "js")));
+        path.join(config.root, "js", "main.js"),
+        { debug: true }
+    )
+    .bundle()
+    .on("error", handleErrors.warning);
 
     bundle.pipe(source("main.js"))
-        .pipe(gulp.dest(path.join(config.buildPath(), "js")));
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write("../maps"))
+    .pipe(gulp.dest(path.join(config.buildPath(), "js")));
 
     bundle.pipe(source("main-min.js"))
-        .pipe(streamify(uglify()))
-        .pipe(gulp.dest(path.join(config.buildPath(), "js")));
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(gulp.dest(path.join(config.buildPath(), "js")));
 });

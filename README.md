@@ -9,7 +9,7 @@ Build script based on Dan Tello's recipe.
 
 ## Requirements
 
-- Node v0.10.36 (current versions of gulp-sourcemaps and gulp-less will not work properly with v0.12.0)
+- Node v0.12
 
 ## Installing
 

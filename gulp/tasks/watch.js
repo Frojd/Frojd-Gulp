@@ -2,19 +2,17 @@
 
 var gulp = require("gulp");
 var path = require("path");
-var livereload = require("gulp-livereload");
-var getSource = require("../util/getSource");
+
 var config = require("../config");
+var getSource = require("../util/getSource");
 var source =  getSource(
-    "js", 
-    [ path.join("js", "**", "*.js") ], 
-    config.jsFoldersToExclude, 
+    "js",
+    [ path.join("js", "**", "*.js") ],
+    config.jsFoldersToExclude,
     true
 );
 
-gulp.task("watch", function() {
-
-    livereload.listen();
+gulp.task("watch", [ "browserSync" ], function() {
 
     gulp.watch(
         [ path.join("less", "**", "*.less") ],
@@ -39,10 +37,5 @@ gulp.task("watch", function() {
         { cwd: config.root },
         [ "icons" ]
     );
-
-    gulp.watch(
-        [ path.join(config.buildPath(), "**") ]
-    ).on("change", livereload.changed);
-
 });
 
