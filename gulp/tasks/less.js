@@ -17,8 +17,8 @@ gulp.task("lessDev", function() {
     gulp.src(path.join(config.root, "less", "main.less"))
     .pipe(sourcemaps.init())
     .pipe(less())
-    .pipe(autoprefixer())
     .on("error", handleErrors.warning)
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write("../maps"))
     .pipe(gulp.dest(path.join(config.buildPath(), "css")));
 });
@@ -26,10 +26,9 @@ gulp.task("lessDev", function() {
 gulp.task("lessProd", function() {
     gulp.src(path.join(config.root, "less", "main.less"))
     .pipe(less())
+    .on("error", handleErrors.warning)
     .pipe(autoprefixer())
-    .on("error", handleErrors.warning)
     .pipe(minifyCss())
-    .on("error", handleErrors.warning)
     .pipe(rename("main-min.css"))
     .pipe(gulp.dest(path.join(config.buildPath(), "css")));
 });
