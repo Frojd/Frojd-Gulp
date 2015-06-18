@@ -2,9 +2,10 @@
     "name": "frojd-gulp",
     "version": "1.1.4",
     "private": true,
-    "dependencies": {
+    "devDependencies": {
         "browserify": "10.2.4",
         "gulp": "3.9.0",
+        "gulp-autoprefixer": "2.3.1",
         "gulp-changed": "1.2.1",
         "gulp-consolidate": "0.1.2",
         "gulp-iconfont": "1.0.1",
@@ -17,8 +18,8 @@
         "gulp-uglify": "1.2.0",
         "gulp-util": "3.0.5",
         "jquery": "2.1.4",
-        "jshint-stylish": "~2.0.0",
-        "mustache": "2.1.0",
+        "jshint-stylish": "2.0.0",
+        "mustache": "2.1.2",
         "pretty-hrtime": "1.0.0",
         "vinyl-buffer": "1.0.0",
         "vinyl-source-stream": "1.1.0"

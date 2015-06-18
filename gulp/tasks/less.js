@@ -1,6 +1,7 @@
 "use strict";
 
 var gulp = require("gulp");
+var autoprefixer = require("gulp-autoprefixer");
 var less = require("gulp-less");
 var minifyCss = require("gulp-minify-css");
 var path = require("path");
@@ -16,6 +17,7 @@ gulp.task("lessDev", function() {
     gulp.src(path.join(config.root, "less", "main.less"))
     .pipe(sourcemaps.init())
     .pipe(less())
+    .pipe(autoprefixer())
     .on("error", handleErrors.warning)
     .pipe(sourcemaps.write("../maps"))
     .pipe(gulp.dest(path.join(config.buildPath(), "css")));
@@ -24,6 +26,7 @@ gulp.task("lessDev", function() {
 gulp.task("lessProd", function() {
     gulp.src(path.join(config.root, "less", "main.less"))
     .pipe(less())
+    .pipe(autoprefixer())
     .on("error", handleErrors.warning)
     .pipe(minifyCss())
     .on("error", handleErrors.warning)
