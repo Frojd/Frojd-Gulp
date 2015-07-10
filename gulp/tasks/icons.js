@@ -8,6 +8,7 @@ var rename = require("gulp-rename");
 
 var config = require("../config");
 var fontName = "icon";
+var fontPath = config.fontPath || "../fonts";
 
 gulp.task("icons", function() {
     gulp.src([ path.join(config.root, "icons", "*.svg") ])
@@ -26,7 +27,7 @@ gulp.task("icons", function() {
                 };
             }),
             fontName: fontName,
-            fontPath: "../../fonts/",
+            fontPath: fontPath,
             className: "icon"
         }))
         .pipe(rename({ basename: "icons", extname: ".less" }))
