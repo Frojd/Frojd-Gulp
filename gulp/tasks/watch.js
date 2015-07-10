@@ -8,7 +8,7 @@ var getSource = require("../util/getSource");
 var source =  getSource(
     "js",
     [ path.join("js", "**", "*.js") ],
-    config.jsFoldersToExclude,
+    config.excludedFolders,
     true
 );
 
@@ -36,6 +36,12 @@ gulp.task("watch", [ "browserSync" ], function() {
         [ path.join("icons", "**") ],
         { cwd: config.root },
         [ "icons" ]
+    );
+
+    gulp.watch(
+        [ path.join("js", "**"), path.join("less", "**") ],
+        { cwd: config.root },
+        [ "copyFolders" ]
     );
 });
 
