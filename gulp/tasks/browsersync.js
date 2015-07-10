@@ -15,7 +15,8 @@ gulp.task("browserSync", function() {
     if (browserSync) {
         browserSync.init([path.join(config.buildPath(), "**")], {
             proxy: config.proxy,
-            open: false
+            open: false,
+            logLevel: "silent"
         });
     }
 });
