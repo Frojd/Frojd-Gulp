@@ -10,7 +10,7 @@ var handleErrors = require("../util/handleErrors");
 var source = getSource(
     path.join(config.root, "js"),
     [ path.join(config.root, "js", "**", "*.js") ],
-    config.excludedFolders, 
+    config.excludedFolders,
     true
 );
 
