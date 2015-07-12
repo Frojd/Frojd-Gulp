@@ -11,7 +11,7 @@ module.exports = {
     beep: true,
     // Folders to exclude for watch and jshint (optional)
     excludedFolders: [ "node_modules" ],
-    // Folders to copy to the build folder (optional). You probably want "fonts"
+    // Folders to copy to the build folder, you probably want "fonts" (optional)
     foldersToCopy: [],
     // Proxy used with browser sync, examples local.dev, localhost:8888 (optional)
     proxy: ""
