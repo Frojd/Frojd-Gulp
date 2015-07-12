@@ -1,6 +1,6 @@
 {
     "name": "frojd-gulp",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "private": true,
     "devDependencies": {
         "browserify": "10.2.4",
@@ -17,7 +17,6 @@
         "gulp-sourcemaps": "1.5.2",
         "gulp-uglify": "1.2.0",
         "gulp-util": "3.0.5",
-        "jquery": "2.1.4",
         "jshint-stylish": "2.0.0",
         "mustache": "2.1.2",
         "pretty-hrtime": "1.0.0",
