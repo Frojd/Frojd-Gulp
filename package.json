@@ -1,6 +1,6 @@
 {
     "name": "frojd-gulp",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "private": true,
     "devDependencies": {
         "browserify": "10.2.4",
