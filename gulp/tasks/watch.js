@@ -4,44 +4,27 @@ var gulp = require("gulp");
 var path = require("path");
 
 var config = require("../config");
-var getSource = require("../util/getSource");
-var source =  getSource(
-    "js",
-    [ path.join("js", "**", "*.js") ],
-    config.excludedFolders,
-    true
-);
+var getSources = require("../util/getSources");
 
-gulp.task("watch", [ "browserSync" ], function() {
+gulp.task("watch", function() {
 
     gulp.watch(
-        [ path.join("less", "**", "*.less") ],
-        { cwd: config.root },
-        [ "less" ]
+        [path.join("scss", "**", "*.scss")],
+        {cwd: config.root},
+        ["css"]
     );
 
     gulp.watch(
-        source,
-        { cwd: config.root },
-        [ "javascript" ]
+        [path.join("js", "**", "*.js")],
+        {cwd: config.root},
+        ["js"]
     );
 
     gulp.watch(
-        [ path.join("img", "**") ],
-        { cwd: config.root },
-        [ "images" ]
-    );
-
-    gulp.watch(
-        [ path.join("icons", "**") ],
-        { cwd: config.root },
-        [ "icons" ]
-    );
-
-    gulp.watch(
-        [ path.join("js", "**"), path.join("less", "**") ],
-        { cwd: config.root },
-        [ "copyFolders" ]
+        // TODO: Check for updates on gulp watch
+        // TODO: Kolla med nivåer
+        getSources(config.foldersToCopy),
+        {cwd: config.root},
+        ["copy"]
     );
 });
-

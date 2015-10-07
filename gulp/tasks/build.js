@@ -2,4 +2,4 @@
 
 var gulp = require("gulp");
 
-gulp.task("build", [ "javascript", "less", "images", "copyFolders" ]);
+gulp.task("build", ["js", "css", "copy"]);
