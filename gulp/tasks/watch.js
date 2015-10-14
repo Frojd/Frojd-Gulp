@@ -21,6 +21,12 @@ gulp.task("watch", function() {
     );
 
     gulp.watch(
+        [path.join("icons", "**")],
+        { cwd: config.root },
+        ["icons"]
+    );
+
+    gulp.watch(
         // TODO: Check for updates on gulp watch
         // TODO: Kolla med nivåer
         getSources(config.foldersToCopy),
