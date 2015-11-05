@@ -1,5 +1,5 @@
-"use strict";
+'use strict';
 
-var gulp = require("gulp");
+var gulp = require('gulp');
 
-gulp.task("build", ["js", "css", "copy"]);
+gulp.task('build', ['js', 'css', 'copy']);
