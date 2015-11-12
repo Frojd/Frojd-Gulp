@@ -27,12 +27,12 @@ gulp.task('eslint', function() {
 gulp.task('browserify', ['eslint'], function() {
 
     var b = browserify({
-        entries: path.join(config.root, 'js', 'main.js'),
+        entries: path.join(config.root, 'js', 'index.js'),
         debug: true
     });
 
     return b.bundle()
-    .pipe(source('main.js'))
+    .pipe(source('index.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .on('error', handleErrors.warning)
@@ -41,8 +41,8 @@ gulp.task('browserify', ['eslint'], function() {
 });
 
 gulp.task('uglify', ['browserify'], function() {
-    return gulp.src(path.join(config.buildPath(), 'js', 'main.js'))
+    return gulp.src(path.join(config.buildPath(), 'js', 'index.js'))
     .pipe(uglify())
-    .pipe(rename('main-min.js'))
+    .pipe(rename('index-min.js'))
     .pipe(gulp.dest(path.join(config.buildPath(), 'js')));
 });

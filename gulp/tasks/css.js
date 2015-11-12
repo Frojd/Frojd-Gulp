@@ -13,13 +13,13 @@ var config = require('../config');
 gulp.task('css', ['sass']);
 
 gulp.task('sass', function() {
-    return gulp.src(path.join(config.root, 'scss', 'main.scss'))
+    return gulp.src(path.join(config.root, 'scss', 'index.scss'))
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(path.join(config.buildPath(), 'css')))
     .pipe(minifyCss())
-    .pipe(rename('main-min.css'))
+    .pipe(rename('index-min.css'))
     .pipe(gulp.dest(path.join(config.buildPath(), 'css')));
 });
