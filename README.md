@@ -3,13 +3,13 @@ Gulp
 
 Build script based on Dan Tello's recipe.
 - Bundles scripts with browserify
-- Compiles less files
+- Compiles scss files
 - Minifies images
 - Creates icon fonts from svg
 
 ## Requirements
 
-- Node v0.12
+- Node >= 5.0.0
 
 ## Installing
 
@@ -30,9 +30,9 @@ Rename config.template.js to config.js
                 |-- /icons
                 |-- /img
                 |-- /js
-                    |-- main.js
-                |-- /less
-                    |-- main.less
+                    |-- index.js
+                |-- /scss
+                    |-- index.less
     |-- /wp-includes
 
 // config.js
@@ -58,7 +58,7 @@ Fonts are created by just dropping svg icons in the icons folder during watch. S
 Run:
 
 ```
-gulp watch
+gulp
 ````
 
 Assets are built to a "builds" folder, use these files in your project.
