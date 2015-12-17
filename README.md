@@ -31,7 +31,7 @@ Rename config.template.js to config.js
                 |-- /img
                 |-- /js
                     |-- index.js
-                |-- /less
+                |-- /scss
                     |-- index.less
     |-- /wp-includes
 
