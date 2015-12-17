@@ -1,37 +1,37 @@
-"use strict";
+'use strict';
 
-var consolidate = require("gulp-consolidate");
-var gulp = require("gulp");
-var iconFont = require("gulp-iconfont");
-var path = require("path");
-var rename = require("gulp-rename");
+var gulp = require('gulp');
+var iconFont = require('gulp-iconfont');
+var consolidate = require('gulp-consolidate');
+var rename = require('gulp-rename');
+var path = require('path');
+var config = require('../config');
+var fontName = 'icon';
 
-var config = require("../config");
-var fontName = "icon";
-var fontPath = config.fontPath || "../fonts";
-
-gulp.task("icons", function() {
-    gulp.src([ path.join(config.root, "icons", "*.svg") ])
+gulp.task('icons', function(){
+    gulp.src([ path.join(config.root, 'icons', '*.svg') ])
     .pipe(iconFont({
         fontName: fontName,
-        appendCodepoints: true,
-        normalize: true
+        normalize: true,
+        fontHeight: 1001,
+        appendUnicode: true,
+        formats: ['eot', 'ttf', 'svg', 'woff']
     }))
-    .on("codepoints", function(codepoints, options) {
-        gulp.src([ path.resolve(__dirname, "../templates/icons.mustache") ])
-        .pipe(consolidate("mustache", {
-            glyphs: codepoints.map(function(point) {
+    .on('glyphs', function(glyphs) {
+        gulp.src([ path.resolve(__dirname, '../templates/icons.mustache') ])
+        .pipe(consolidate('mustache', {
+            glyphs: glyphs.map(function(point) {
                 return {
                     name: point.name,
-                    codepoint: point.codepoint.toString(16)
+                    codepoint: point.unicode[0].charCodeAt(0).toString(16).toUpperCase()
                 };
             }),
             fontName: fontName,
-            fontPath: fontPath,
-            className: "icon"
+            fontPath: '../fonts/',
+            className: 'icon'
         }))
-        .pipe(rename({ basename: "icons", extname: ".less" }))
-        .pipe(gulp.dest(path.join(config.root, "less", "core")));
+        .pipe(rename({ basename: 'icons', extname: '.scss' }))
+        .pipe(gulp.dest(path.join(config.root, 'scss', 'core')));
     })
-    .pipe(gulp.dest(path.join(config.root, "fonts")));
+    .pipe(gulp.dest(path.join(config.root, 'fonts')));
 });

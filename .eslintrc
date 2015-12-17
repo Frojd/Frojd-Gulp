@@ -1,0 +1,18 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "console": 1,
+        "Bounce": 1
+    },
+    "parser": "babel-eslint",
+    "rules": {
+        "no-console": 0,
+        "quotes": [1, "single"],
+        "semi": [1, "always"],
+        "strict": 0
+    }
+}

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-var gutil = require("gulp-util");
+var gutil = require('gulp-util');
 
-var config = require("../config");
+var config = require('../config');
 
 // Handle an error based on its severity level.
 // Log all levels, and exit the process for fatal levels.
