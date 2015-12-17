@@ -3,7 +3,7 @@ Gulp
 
 Build script based on Dan Tello's recipe.
 - Bundles scripts with browserify
-- Compiles less files
+- Compiles scss files
 - Minifies images
 - Creates icon fonts from svg
 
