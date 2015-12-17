@@ -9,7 +9,7 @@ Build script based on Dan Tello's recipe.
 
 ## Requirements
 
-- Node v0.12
+- Node >= 5.0.0
 
 ## Installing
 
@@ -30,9 +30,9 @@ Rename config.template.js to config.js
                 |-- /icons
                 |-- /img
                 |-- /js
-                    |-- main.js
+                    |-- index.js
                 |-- /less
-                    |-- main.less
+                    |-- index.less
     |-- /wp-includes
 
 // config.js
@@ -58,7 +58,7 @@ Fonts are created by just dropping svg icons in the icons folder during watch. S
 Run:
 
 ```
-gulp watch
+gulp
 ````
 
 Assets are built to a "builds" folder, use these files in your project.
