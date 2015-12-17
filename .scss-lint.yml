@@ -1,0 +1,18 @@
+linters:
+    BemDepth:
+        enabled: true
+    BorderZero:
+        enabled: false
+    ColorVariable:
+        enabled: true
+    HexLength:
+        enabled: true
+        style: long
+    Indentation:
+        enabled: true
+        width: 4
+    PlaceholderInExtend:
+        enabled: false
+    SelectorFormat:
+        convention: strict_BEM
+        enabled: true
