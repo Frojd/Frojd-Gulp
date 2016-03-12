@@ -3,21 +3,31 @@
 var fs = require('fs');
 
 try {
-    var config = require("./config");
+    var config = require('./config');
 } catch (e) {
-    console.error("Error! Missing config file, have you forgot to "+
-            "copy config.template.js?");
-    process.exit(e.code);
+    console.error('Error! Missing config file, have you forgot to '+
+        'copy config.template.js?');
+    console.log('\n');
+    throw(e);
 }
 
-var tasks = fs.readdirSync('./gulp/tasks/');
+// Load tasks
+var tasks = [];
 
-// Make sure only .js files are loaded
-tasks = tasks.filter(function(file) {
-    return file.substr(-3) === '.js';
-});
+if (config.tasks) {
+    tasks = config.tasks;
+}
+
+if (! tasks.length) {
+    tasks = config.tasks;
+    tasks = fs.readdirSync('./gulp/tasks/');
+
+    // Make sure only .js files are loaded
+    tasks = tasks.filter(function(file) {
+        return file.substr(-3) === '.js';
+    });
+}
 
 tasks.forEach(function(task) {
     require('./tasks/' + task);
 });
-
