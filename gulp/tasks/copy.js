@@ -15,8 +15,8 @@ gulp.task('copy', function () {
         if (typeof from === 'object') {
             var key = Object.keys(folder)[0];
 
-            destination = folder[key];
             from = key;
+            destination = folder[key];
         }
 
         gulp.src(path.join(config.root, from, '**'))
