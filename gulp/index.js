@@ -12,6 +12,11 @@ try {
 
 var tasks = fs.readdirSync('./gulp/tasks/');
 
+// Make sure only .js files are loaded
+tasks = tasks.filter(function(file) {
+    return file.substr(-3) === '.js';
+});
+
 tasks.forEach(function(task) {
     require('./tasks/' + task);
 });
