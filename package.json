@@ -2,6 +2,11 @@
     "name": "frojd-gulp",
     "version": "3.0.1",
     "private": true,
+    "homepage": "http://frojd.se",
+    "repository": "frojd/frojd-gulp",
+    "engines": {
+        "node": ">=5"
+    },
     "browserify": {
         "transform": [
             "babelify"
