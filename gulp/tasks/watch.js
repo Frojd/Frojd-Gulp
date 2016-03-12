@@ -26,10 +26,20 @@ gulp.task("watch", function() {
         ["icons"]
     );
 
+
+    var sources = config.foldersToCopy;
+    sources = sources.map(function(folder) {
+        if (typeof folder === 'object') {
+            return Object.keys(folder)[0];
+        }
+
+        return folder;
+    });
+
     gulp.watch(
         // TODO: Check for updates on gulp watch
         // TODO: Kolla med nivåer
-        getSources(config.foldersToCopy),
+        getSources(sources),
         {cwd: config.root},
         ["copy"]
     );
