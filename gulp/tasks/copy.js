@@ -2,12 +2,15 @@
 
 var gulp = require('gulp');
 var path = require('path');
+var fs = require('fs');
+var rename = require('gulp-rename');
 
 var config = require('../config');
 var handleErrors = require('../util/handleErrors');
 
 gulp.task('copy', function () {
     var folders = config.foldersToCopy;
+
     folders.forEach(function(folder) {
         var from = folder;
         var destination = from;
@@ -19,8 +22,22 @@ gulp.task('copy', function () {
             destination = folder[key];
         }
 
-        gulp.src(path.join(config.root, from, '**'))
-            .on('error', handleErrors.warning)
-            .pipe(gulp.dest(path.join(config.buildPath(), destination)));
+        var fromPath = path.join(config.root, from);
+
+        // Use copy method depending if it's a directory or file
+        if (fs.lstatSync(fromPath).isDirectory()) {
+            fromPath = path.join(fromPath, '**');
+            gulp.src(path.join(fromPath))
+                .on('error', handleErrors.warning)
+                .pipe(gulp.dest(path.join(config.buildPath(), destination)));
+        } else {
+            gulp.src(fromPath)
+                .on('error', handleErrors.warning)
+                .pipe(rename(path.basename(destination)))
+                .pipe(gulp.dest(path.join(
+                    config.buildPath(), path.dirname(destination)
+                )
+            ));
+        }
     });
 });
