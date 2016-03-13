@@ -27,7 +27,7 @@ gulp.task("watch", function() {
     );
 
 
-    var sources = config.foldersToCopy;
+    var sources = config.copyFolders;
     sources = sources.map(function(folder) {
         if (typeof folder === 'object') {
             return Object.keys(folder)[0];

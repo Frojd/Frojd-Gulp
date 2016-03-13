@@ -9,7 +9,7 @@ var config = require('../config');
 var handleErrors = require('../util/handleErrors');
 
 gulp.task('copy', function () {
-    var folders = config.foldersToCopy;
+    var folders = config.copyFolders;
 
     folders.forEach(function(folder) {
         var from = folder;

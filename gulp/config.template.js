@@ -14,7 +14,7 @@ module.exports = {
     // Folders to exclude for watch and jshint (optional)
     excludedFolders: [],
     // Folders to copy to the build folder, you probably want "fonts" (optional)
-    foldersToCopy: [
+    copyFolders: [
         // 'fonts',                 // copy ./fonts to builds/fonts
         // {'fonts': 'css/fonts'}   // copy ./fonts to builds/css/fonts
     ]
