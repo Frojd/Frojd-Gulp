@@ -6,8 +6,6 @@ var Config = require('./config');
 
 
 var TaskRunner = function() {
-    this.loadConfig();
-    this.loadTasks();
 }
 
 TaskRunner.prototype.loadConfig = function() {
@@ -34,7 +32,8 @@ TaskRunner.prototype.loadTasks = function(tasks) {
 }
 
 TaskRunner.prototype.run = function() {
-    //console.log("RUN!");
+    this.loadConfig();
+    this.loadTasks();
 }
 
 
