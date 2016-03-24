@@ -1,6 +1,5 @@
 .DS_Store
 node_modules/
-test/
 taskrunner.json
 gulp/tests/frontend/dist/
 .taskrunnerrc
