@@ -20,13 +20,6 @@ gulp.task("watch", function() {
         ["js"]
     );
 
-    gulp.watch(
-        [path.join("icons", "**")],
-        { cwd: config.root },
-        ["icons"]
-    );
-
-
     var sources = config.copyFolders;
     sources = sources.map(function(folder) {
         if (typeof folder === 'object') {
