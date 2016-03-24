@@ -29,13 +29,13 @@ gulp.task('copy', function () {
             fromPath = path.join(fromPath, '**');
             gulp.src(path.join(fromPath))
                 .on('error', handleErrors.warning)
-                .pipe(gulp.dest(path.join(config.buildPath(), destination)));
+                .pipe(gulp.dest(path.join(config.buildPath, destination)));
         } else {
             gulp.src(fromPath)
                 .on('error', handleErrors.warning)
                 .pipe(rename(path.basename(destination)))
                 .pipe(gulp.dest(path.join(
-                    config.buildPath(), path.dirname(destination)
+                    config.buildPath, path.dirname(destination)
                 )
             ));
         }

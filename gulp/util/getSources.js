@@ -1,9 +1,10 @@
 'use strict';
 
 var path = require('path');
-var config = require('../config');
+
 
 module.exports = function(folders, exclude) {
+    var config = require('../').config;
 
     exclude = typeof exclude !== 'undefined' ? exclude : false;
     var sources = [];

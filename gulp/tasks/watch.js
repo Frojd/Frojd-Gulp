@@ -3,10 +3,10 @@
 var gulp = require("gulp");
 var path = require("path");
 
-var config = require("../config");
 var getSources = require("../util/getSources");
 
 gulp.task("watch", function() {
+    var config = require('../').config;
 
     gulp.watch(
         [path.join("scss", "**", "*.scss")],

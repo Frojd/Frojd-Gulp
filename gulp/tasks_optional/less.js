@@ -24,8 +24,8 @@ gulp.task('less', function() {
         .on("error", handleErrors.warning)
         .pipe(autoprefixer())
         .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest(path.join(config.buildPath(), 'css')))
+        .pipe(gulp.dest(path.join(config.buildPath, 'css')))
         .pipe(minifyCss())
         .pipe(rename('index-min.css'))
-        .pipe(gulp.dest(path.join(config.buildPath(), 'css')));
+        .pipe(gulp.dest(path.join(config.buildPath, 'css')));
 });

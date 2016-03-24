@@ -20,9 +20,9 @@ gulp.task('eslint', function() {
     var sources = [path.join(config.root, 'js', '**', '*.js')];
 
     return gulp.src(sources.concat(getSources(config.excludedFolders, true)))
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 gulp.task('browserify', ['eslint'], function() {
@@ -38,13 +38,13 @@ gulp.task('browserify', ['eslint'], function() {
         .pipe(sourcemaps.init({loadMaps: true}))
         .on('error', handleErrors.warning)
         .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest(path.join(config.buildPath(), 'js')));
+        .pipe(gulp.dest(path.join(config.buildPath, 'js')));
 });
 
 gulp.task('uglify', ['browserify'], function() {
     var config = require('../').config;
-    return gulp.src(path.join(config.buildPath(), 'js', 'index.js'))
+    return gulp.src(path.join(config.buildPath, 'js', 'index.js'))
         .pipe(uglify())
         .pipe(rename('index-min.js'))
-        .pipe(gulp.dest(path.join(config.buildPath(), 'js')));
+        .pipe(gulp.dest(path.join(config.buildPath, 'js')));
 });
