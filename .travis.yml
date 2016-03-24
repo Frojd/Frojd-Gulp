@@ -4,6 +4,6 @@ node_js:
 sudo: false
 script:
     # - cp taskrunner.example.json taskrunner.json
-    - "echo '{\"root\": \"./test/test-frontend\", \"buildPath\": \"./test/test-frontend/dist\"}' > taskrunner.json"
+    - "echo '{\"root\": \"./test/test-frontend\", \"buildPath\": \"./test/test-frontend/dist\"}' > .taskrunnerrc"
     - gulp build
     - node_modules/mocha/bin/mocha --reporter spec test
