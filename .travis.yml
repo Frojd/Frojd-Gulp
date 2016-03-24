@@ -4,5 +4,5 @@ node_js:
 sudo: false
 script:
     # - cp taskrunner.example.json taskrunner.json
-    - echo '{"root": "./gulp/tests/frontend", "buildPath": "./gulp/tests/frontend/dist"}' > taskrunner.json
+    - "echo '{\"root\": \"./gulp/tests/frontend\", \"buildPath\": \"./gulp/tests/frontend/dist\"}' > taskrunner.json"
     - gulp build
