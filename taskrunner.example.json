@@ -1,0 +1,8 @@
+{
+    "tasks": [],
+    "root": "/Users/frojd/project/frontend",
+    "buildPath": "/Users/frojd/project/frontend/dist",
+    "copyFolders": [
+        "fonts"
+    ]
+}

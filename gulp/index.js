@@ -1,33 +1,42 @@
 'use strict';
 
+var path = require('path');
 var fs = require('fs');
+var Config = require('./config');
 
-try {
-    var config = require('./config');
-} catch (e) {
-    console.error('Error! Missing config file, have you forgot to '+
-        'copy config.template.js?');
-    console.log('\n');
-    throw(e);
+
+var TaskRunner = function() {
+    this.loadConfig();
+    this.loadTasks();
 }
 
-// Load tasks
-var tasks = [];
-
-if (config.tasks) {
-    tasks = config.tasks;
+TaskRunner.prototype.loadConfig = function() {
+    var params = require('../taskrunner.json');
+    this.config = new Config(params);
 }
 
-if (! tasks.length) {
-    tasks = config.tasks;
-    tasks = fs.readdirSync('./gulp/tasks/');
 
-    // Make sure only .js files are loaded
-    tasks = tasks.filter(function(file) {
-        return file.substr(-3) === '.js';
+TaskRunner.prototype.loadTasks = function(tasks) {
+    var tasks = this.config.tasks;
+
+    if (! tasks.length) {
+        tasks = fs.readdirSync('./gulp/tasks/');
+
+        // Make sure only .js files are loaded
+        tasks = tasks.filter(function(file) {
+            return file.substr(-3) === '.js';
+        });
+    }
+
+    tasks.forEach(function(task) {
+        require('./tasks/' + task);
     });
 }
 
-tasks.forEach(function(task) {
-    require('./tasks/' + task);
-});
+TaskRunner.prototype.run = function() {
+    //console.log("RUN!");
+}
+
+
+module.exports = new TaskRunner();
+

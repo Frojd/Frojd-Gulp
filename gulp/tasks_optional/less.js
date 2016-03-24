@@ -13,19 +13,19 @@ var less = require("gulp-less");
 var sourcemaps = require('gulp-sourcemaps');
 
 var handleErrors = require("../util/handleErrors");
-var config = require('../config');
 
 gulp.task('css', ['less']);
 
 gulp.task('less', function() {
+    var config = require('../').config;
     return gulp.src(path.join(config.root, 'less', 'index.less'))
-    .pipe(sourcemaps.init())
-    .pipe(less())
-    .on("error", handleErrors.warning)
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write('../maps'))
-    .pipe(gulp.dest(path.join(config.buildPath(), 'css')))
-    .pipe(minifyCss())
-    .pipe(rename('index-min.css'))
-    .pipe(gulp.dest(path.join(config.buildPath(), 'css')));
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .on("error", handleErrors.warning)
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write('../maps'))
+        .pipe(gulp.dest(path.join(config.buildPath(), 'css')))
+        .pipe(minifyCss())
+        .pipe(rename('index-min.css'))
+        .pipe(gulp.dest(path.join(config.buildPath(), 'css')));
 });

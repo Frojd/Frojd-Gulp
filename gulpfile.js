@@ -1,3 +1,7 @@
 'use strict';
 
-require('./gulp');
+var taskRunner = require('./gulp');
+
+taskRunner.run();
+
+// taskRunner.run

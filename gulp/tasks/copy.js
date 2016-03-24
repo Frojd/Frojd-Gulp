@@ -5,10 +5,10 @@ var path = require('path');
 var fs = require('fs');
 var rename = require('gulp-rename');
 
-var config = require('../config');
 var handleErrors = require('../util/handleErrors');
 
 gulp.task('copy', function () {
+    var config = require('../').config;
     var folders = config.copyFolders;
 
     folders.forEach(function(folder) {
