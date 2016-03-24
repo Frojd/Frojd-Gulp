@@ -9,7 +9,18 @@ var TaskRunner = function() {
 }
 
 TaskRunner.prototype.loadConfig = function() {
-    var params = JSON.parse(fs.readFileSync(".taskrunnerrc", "utf8"));
+    var params = {};
+
+    try {
+        params = JSON.parse(fs.readFileSync(".taskrunnerrc", "utf8"));
+    } catch(e) {
+        if(e.code === 'ENOENT') {
+            console.warn('No .taskrunnerrc file found. Add next to package.json file to get rid of this warning.');
+        } else {
+            throw("Unexpected error when parsing taskrunner, please fix your stuff!", e);
+        }
+    }
+
     this.config = new Config(params);
 }
 
