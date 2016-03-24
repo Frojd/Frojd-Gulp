@@ -2,7 +2,7 @@
 
 var autoprefixer = require('gulp-autoprefixer');
 var gulp = require('gulp');
-var minifyCss = require('gulp-minify-css');
+var minifyCss = require('gulp-clean-css');
 var path = require('path');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
