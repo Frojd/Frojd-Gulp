@@ -2,6 +2,5 @@
 node_modules/
 test/
 taskrunner.json
-
-# Ignore compiled path
 gulp/tests/frontend/dist/
+.taskrunnerrc
