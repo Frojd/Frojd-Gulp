@@ -9,7 +9,7 @@ var TaskRunner = function() {
 }
 
 TaskRunner.prototype.loadConfig = function() {
-    var params = require('../taskrunner.json');
+    var params = JSON.parse(fs.readFileSync(".taskrunnerrc", "utf8"));
     this.config = new Config(params);
 }
 
