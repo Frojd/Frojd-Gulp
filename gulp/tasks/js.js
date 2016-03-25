@@ -1,16 +1,16 @@
 'use strict';
 
 var path = require('path');
+var gulp = require('gulp');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
-var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
-var getSources = require("../util/sources").getSources;
+var getSources = require('../util/sources').getSources;
 var logging = require('../util/logging');
 
 

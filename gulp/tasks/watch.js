@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var gulp = require('gulp');
 var path = require('path');
@@ -35,6 +35,6 @@ gulp.task('watch', function() {
         // TODO: check levels
         getSources(sources),
         {cwd: config.root},
-        ["copy"]
+        ['copy']
     );
 });

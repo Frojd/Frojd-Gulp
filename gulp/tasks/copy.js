@@ -7,6 +7,7 @@ var rename = require('gulp-rename');
 
 var logging = require('../util/logging');
 
+
 gulp.task('copy', function () {
     var config = require('../').config;
     var folders = config.copyFolders;

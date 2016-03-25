@@ -1,5 +1,5 @@
 /**
- * Taskrunner class
+ * This class handles configuration and task loading
  */
 
 'use strict';
@@ -10,7 +10,7 @@ var Config = require('./config');
 
 
 var TaskRunner = function() {
-}
+};
 
 TaskRunner.prototype.loadConfig = function() {
     var params = {};
@@ -26,10 +26,10 @@ TaskRunner.prototype.loadConfig = function() {
     }
 
     this.config = new Config(params);
-}
+};
 
 
-TaskRunner.prototype.loadTasks = function(tasks) {
+TaskRunner.prototype.loadTasks = function() {
     var tasks = this.config.tasks;
 
     if (! tasks.length) {
@@ -44,12 +44,12 @@ TaskRunner.prototype.loadTasks = function(tasks) {
     tasks.forEach(function(task) {
         require('./tasks/' + task);
     });
-}
+};
 
 TaskRunner.prototype.run = function() {
     this.loadConfig();
     this.loadTasks();
-}
+};
 
 
 module.exports = new TaskRunner();
