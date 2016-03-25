@@ -2,6 +2,5 @@
 
 var taskRunner = require('./gulp');
 
-taskRunner.run();
 
-// taskRunner.run
+taskRunner.run();

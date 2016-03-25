@@ -2,6 +2,7 @@
 
 var path = require('path');
 
+
 function getSources(folders, exclude) {
     var config = require('../').config;
 

@@ -1,5 +1,8 @@
+'use strict';
+
 var assert = require('assert');
 var fs = require('fs');
+
 
 describe('Assert gulp build works', function() {
     var projectRoot = './test/frontend-project';

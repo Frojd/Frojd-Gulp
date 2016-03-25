@@ -1,3 +1,7 @@
+/**
+ * Class for handling taskrunner configuration.
+ */
+
 'use strict';
 
 var path = require('path');
