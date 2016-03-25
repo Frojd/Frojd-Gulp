@@ -34,6 +34,7 @@
   "scripts": {
     "build": "gulp build",
     "watch": "gulp watch",
-    "start": "gulp"
+    "start": "gulp",
+    "test" : "mocha --reporter spec test"
   }
 }

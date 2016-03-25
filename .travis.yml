@@ -5,5 +5,5 @@ sudo: false
 script:
     # - cp taskrunner.example.json taskrunner.json
     - "echo '{\"root\": \"./test/test-frontend\", \"buildPath\": \"./test/test-frontend/dist\", \"copyFolders\": [\"fonts\"]}' > .taskrunnerrc"
-    - gulp build
-    - node_modules/mocha/bin/mocha --reporter spec test
+    - npm run build
+    - npm run test
