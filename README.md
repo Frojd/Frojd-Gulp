@@ -28,7 +28,7 @@ This is gulp based taskrunner that:
     npm install gulp -g
     ```
 
-2. Place the directory `gulp` and the files `packages.json` and `gulpfile.js` from this repository to your project.
+2. Place the directory `taskrunner` and the files `packages.json` and `gulpfile.js` from this repository to your project.
     1. (Wordpress) put in `src/wp-content/themes/theme-name`
     2. (Django) put in the core apps static folder `src/core/static/core`
 3. Run `npm install`
@@ -36,7 +36,7 @@ This is gulp based taskrunner that:
 
     ```
     /frontend
-    |-- /gulp
+    |-- /taskrunner
     |-- .taskrunnerrc
     |-- js
     |-- sass

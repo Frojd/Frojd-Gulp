@@ -33,7 +33,7 @@ TaskRunner.prototype.loadTasks = function() {
     var tasks = this.config.tasks;
 
     if (! tasks.length) {
-        tasks = fs.readdirSync('./gulp/tasks/');
+        tasks = fs.readdirSync(__dirname+'/tasks/');
 
         // Make sure only .js files are loaded
         tasks = tasks.filter(function(file) {

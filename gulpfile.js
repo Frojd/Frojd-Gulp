@@ -1,6 +1,6 @@
 'use strict';
 
-var taskRunner = require('./gulp');
+var taskRunner = require('./taskrunner');
 
 
 taskRunner.run();

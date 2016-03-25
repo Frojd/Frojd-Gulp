@@ -4,7 +4,7 @@ var assert = require('assert');
 var fs = require('fs');
 
 
-describe('Assert gulp build works', function() {
+describe('Assert build works', function() {
     var projectRoot = './test/frontend-project';
 
     describe('Locate generated files', function () {
