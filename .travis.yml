@@ -4,6 +4,6 @@ node_js:
 sudo: false
 script:
     # - cp taskrunner.example.json taskrunner.json
-    - "echo '{\"root\": \"./test/test-frontend\", \"buildPath\": \"./test/test-frontend/dist\", \"copyFolders\": [\"fonts\"]}' > .taskrunnerrc"
+    - "echo '{\"root\": \"./test/frontend-project\", \"buildPath\": \"./test/frontend-project/dist\", \"copyFolders\": [\"fonts\"]}' > .taskrunnerrc"
     - npm run build
     - npm run test
