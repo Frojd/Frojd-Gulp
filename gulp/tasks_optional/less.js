@@ -12,7 +12,7 @@ var rename = require('gulp-rename');
 var less = require("gulp-less");
 var sourcemaps = require('gulp-sourcemaps');
 
-var handleErrors = require("../util/handleErrors");
+var logging = require("../util/logging");
 
 gulp.task('css', ['less']);
 
@@ -21,7 +21,7 @@ gulp.task('less', function() {
     return gulp.src(path.join(config.root, 'less', 'index.less'))
         .pipe(sourcemaps.init())
         .pipe(less())
-        .on("error", handleErrors.warning)
+        .on("error", logging.warning)
         .pipe(autoprefixer())
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest(path.join(config.buildPath, 'css')))

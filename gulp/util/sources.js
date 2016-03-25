@@ -2,8 +2,7 @@
 
 var path = require('path');
 
-
-module.exports = function(folders, exclude) {
+function getSources(folders, exclude) {
     var config = require('../').config;
 
     exclude = typeof exclude !== 'undefined' ? exclude : false;
@@ -22,4 +21,8 @@ module.exports = function(folders, exclude) {
     }
 
     return sources;
+};
+
+module.exports = {
+    getSources: getSources
 };

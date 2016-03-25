@@ -3,7 +3,7 @@
 var gulp = require("gulp");
 var path = require("path");
 
-var getSources = require("../util/getSources");
+var getSources = require("../util/sources").getSources;
 
 gulp.task("watch", function() {
     var config = require('../').config;

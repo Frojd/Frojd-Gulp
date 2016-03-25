@@ -5,7 +5,7 @@ var path = require('path');
 var fs = require('fs');
 var rename = require('gulp-rename');
 
-var handleErrors = require('../util/handleErrors');
+var logging = require('../util/logging');
 
 gulp.task('copy', function () {
     var config = require('../').config;
@@ -28,11 +28,11 @@ gulp.task('copy', function () {
         if (fs.lstatSync(fromPath).isDirectory()) {
             fromPath = path.join(fromPath, '**');
             gulp.src(path.join(fromPath))
-                .on('error', handleErrors.warning)
+                .on('error', logging.warning)
                 .pipe(gulp.dest(path.join(config.buildPath, destination)));
         } else {
             gulp.src(fromPath)
-                .on('error', handleErrors.warning)
+                .on('error', logging.warning)
                 .pipe(rename(path.basename(destination)))
                 .pipe(gulp.dest(path.join(
                     config.buildPath, path.dirname(destination)

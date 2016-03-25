@@ -10,8 +10,8 @@ var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
-var getSources = require('../util/getSources');
-var handleErrors = require('../util/handleErrors');
+var getSources = require("../util/sources").getSources;
+var logging = require('../util/logging');
 
 gulp.task('js', ['uglify']);
 
@@ -36,7 +36,7 @@ gulp.task('browserify', ['eslint'], function() {
         .pipe(source('index.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
-        .on('error', handleErrors.warning)
+        .on('error', logging.warning)
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest(path.join(config.buildPath, 'js')));
 });

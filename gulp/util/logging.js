@@ -2,11 +2,11 @@
 
 var gutil = require('gulp-util');
 
-var config = require('../config');
 
 // Handle an error based on its severity level.
 // Log all levels, and exit the process for fatal levels.
 function handleError(stop, error) {
+    var config = require('../').config;
     gutil.log(error.message);
 
     if (config.beep) {
@@ -18,12 +18,20 @@ function handleError(stop, error) {
     }
 }
 
-// Convenience handler for error-level errors.
-exports.error = function(error) {
+function errorHandler(error) {
     handleError.call(this, true, error);
 };
 
-// Convenience handler for warning-level errors.
-exports.warning = function(error) {
+function warningHandler(error) {
     handleError.call(this, false, error);
 };
+
+
+module.exports = {
+    // Convenience handler for error-level errors.
+    error: errorHandler,
+
+    // Convenience handler for warning-level errors.
+    warning: warningHandler
+
+}
