@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Frojd/Frojd-Gulp.svg?branch=master)](https://travis-ci.org/Frojd/Frojd-Gulp)
 
-# Gulp
+# Fröjd-Taskrunner
 
 This is gulp based taskrunner that:
 
@@ -119,4 +119,4 @@ Want to contribute? Awesome. Just send a pull request.
 
 ## License
 
-Frojd-Gulp is released under the MIT License.
+Fröjd-Taskrunner is released under the MIT License.
