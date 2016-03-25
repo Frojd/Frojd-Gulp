@@ -47,5 +47,22 @@ describe('Assert gulp build works', function() {
             });
         });
     });
+
+    describe('Make sure maps exist', function() {
+        it('checks if index.js.map exist', function(done) {
+            fs.stat(projectRoot+'/dist/maps/index.js.map', function(err, stats) {
+                assert.equal(err, null);
+                done();
+            });
+        });
+
+        it('checks if index.css.map exist', function(done) {
+            fs.stat(projectRoot+'/dist/maps/index.css.map', function(err, stats) {
+                assert.equal(err, null);
+                done();
+            });
+        });
+    });
+
 });
 

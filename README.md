@@ -1,15 +1,13 @@
-Gulp
-====
+# Gulp
 
-Build script based on Dan Tello's recipe.
+This is gulp based taskrunner that:
 - Bundles scripts with browserify
 - Compiles scss files
-- Minifies images
-- Creates icon fonts from svg
 
 ## Requirements
 
 - Node >= 5.0.0
+
 
 ## Installing
 
@@ -49,9 +47,6 @@ Make sure gulp is installed globally:
 npm install gulp -g
 ```
 
-## Icons
-
-Fonts are created by just dropping svg icons in the icons folder during watch. Svg should be single coloured.
 
 ## Running
 
@@ -63,3 +58,15 @@ gulp
 
 Assets are built to a "builds" folder, use these files in your project.
 Use minified version in production environment and non-minified version for debugging.
+```
+
+
+## Tests
+
+- `npm run test`
+
+### Generate file checksum
+- OSX: `md5 filepath.js`
+
+
+## License
