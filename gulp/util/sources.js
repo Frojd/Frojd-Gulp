@@ -21,7 +21,7 @@ function getSources(folders, exclude) {
     }
 
     return sources;
-};
+}
 
 module.exports = {
     getSources: getSources

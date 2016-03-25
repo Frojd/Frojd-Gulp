@@ -1,7 +1,11 @@
+/**
+ * Taskrunner class
+ */
+
 'use strict';
 
-var path = require('path');
 var fs = require('fs');
+
 var Config = require('./config');
 
 
@@ -12,12 +16,12 @@ TaskRunner.prototype.loadConfig = function() {
     var params = {};
 
     try {
-        params = JSON.parse(fs.readFileSync(".taskrunnerrc", "utf8"));
+        params = JSON.parse(fs.readFileSync('.taskrunnerrc', 'utf8'));
     } catch(e) {
         if(e.code === 'ENOENT') {
             console.warn('No .taskrunnerrc file found. Add next to package.json file to get rid of this warning.');
         } else {
-            throw("Unexpected error when parsing taskrunner, please fix your stuff!", e);
+            throw('Unexpected error when parsing taskrunner, please fix your stuff!', e);
         }
     }
 

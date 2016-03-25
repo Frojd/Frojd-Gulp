@@ -1,12 +1,13 @@
 'use strict';
 
+var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var gulp = require('gulp');
 var minifyCss = require('gulp-clean-css');
-var path = require('path');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+
 
 gulp.task('css', ['sass']);
 

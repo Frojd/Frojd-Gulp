@@ -1,7 +1,6 @@
 'use strict';
 
 var path = require('path');
-var fs = require('fs');
 
 
 var Config = function(params) {
@@ -28,6 +27,6 @@ var Config = function(params) {
     for (var key in this.params) {
         this[key] = this.params[key];
     }
-}
+};
 
 module.exports = Config;

@@ -18,20 +18,18 @@ function handleError(stop, error) {
     }
 }
 
+// Convenience handler for error-level errors.
 function errorHandler(error) {
     handleError.call(this, true, error);
-};
+}
 
+// Convenience handler for warning-level errors.
 function warningHandler(error) {
     handleError.call(this, false, error);
-};
+}
 
 
 module.exports = {
-    // Convenience handler for error-level errors.
     error: errorHandler,
-
-    // Convenience handler for warning-level errors.
     warning: warningHandler
-
-}
+};

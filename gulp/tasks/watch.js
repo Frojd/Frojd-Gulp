@@ -1,23 +1,24 @@
 "use strict";
 
-var gulp = require("gulp");
-var path = require("path");
+var gulp = require('gulp');
+var path = require('path');
 
-var getSources = require("../util/sources").getSources;
+var getSources = require('../util/sources').getSources;
 
-gulp.task("watch", function() {
+
+gulp.task('watch', function() {
     var config = require('../').config;
 
     gulp.watch(
-        [path.join("scss", "**", "*.scss")],
+        [path.join('scss', '**', '*.scss')],
         {cwd: config.root},
-        ["css"]
+        ['css']
     );
 
     gulp.watch(
-        [path.join("js", "**", "*.js")],
+        [path.join('js', '**', '*.js')],
         {cwd: config.root},
-        ["js"]
+        ['js']
     );
 
     var sources = config.copyFolders;
@@ -31,7 +32,7 @@ gulp.task("watch", function() {
 
     gulp.watch(
         // TODO: Check for updates on gulp watch
-        // TODO: Kolla med nivåer
+        // TODO: check levels
         getSources(sources),
         {cwd: config.root},
         ["copy"]

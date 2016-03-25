@@ -1,7 +1,10 @@
-var assert = require('assert');
+'use strict';
+
 var fs = require('fs');
+var assert = require('assert');
 
 var checksum = require('./utils/checksum');
+
 
 describe('Assert file content', function() {
     var projectRoot = './test/frontend-project';
